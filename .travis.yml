@@ -5,5 +5,4 @@ python:
 install:
 - "pip install pytest"
 - "pip install pytest-bdd"
-- "pip install -r requirements.txt"
 script: python -m pytest
