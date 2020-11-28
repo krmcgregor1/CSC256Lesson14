@@ -1,0 +1,14 @@
+Feature: Calculate retirement date year rollover (13 months = 1 year 1 month)
+	Scenario: Retirement date month below 13
+		When the user entered "1950" as their birth year
+		And the user entered "2" as their birth month
+		And the user entered "67" as their age year
+		And the user entered "6" as their age month
+		Then the retirement date is "8"-"2017"
+	
+	Scenario: Retirement date month above 12
+		When the user entered "1950" as their birth year
+		And the user entered "8" as their birth month
+		And the user entered "67" as their age year
+		And the user entered "6" as their age month
+		Then the retirement date is "2"-"2018"

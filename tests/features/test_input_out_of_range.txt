@@ -1,0 +1,18 @@
+Feature: Calculate retirement date input out of range
+	Scenario Outline: Input out of range
+		When the user entered "<birthYear>" as their birth year
+		And the user entered "<birthMonth>" as their birth month
+		And the user entered "<ageYear>" as their age year
+		And the user entered "<ageMonth>" as their age month
+		Then a ValueError is raised
+	
+		Examples: Input
+			|birthYear|birthMonth|ageYear|ageMonth|
+			|1700     |6         |66     |2       |
+			|3500     |6         |66     |2       |
+			|2000     |0         |66     |2       |
+			|2000     |15        |66     |2       |
+			|2000     |6         |60     |2       |
+			|2000     |6         |70     |2       |
+			|2000     |6         |66     |-1      |
+			|2000     |6         |66     |12      |
